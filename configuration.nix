@@ -95,6 +95,12 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # Enable native Huion / drawing tablet support
+  hardware.opentabletdriver = {
+    enable = true;
+    daemon.enable = true;
+  };
+
   # Flatpak support
   services.flatpak.enable = true;
 
@@ -188,6 +194,9 @@
     # coding dev
     nim
     godot
+
+    # creative
+    opentabletdriver # GUI configurator
 
 
     # Gaming & Wine Stack
