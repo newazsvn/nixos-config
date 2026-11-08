@@ -147,6 +147,7 @@
 
     # Applications
     firefox
+    networkmanagerapplet
 
     # Gaming & Wine Stack
     bottles
