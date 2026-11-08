@@ -149,7 +149,7 @@
   users.users."newaj" = {
     isNormalUser = true;
     description = "newaj";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
     packages = with pkgs; [];
   };
 
@@ -222,9 +222,6 @@
   # for driving wheel
    # Enable uinput subsystem for gaming controllers
    hardware.uinput.enable = true;
-
-   # Ensure user has permission to access input devices
-   users.users."newaj".extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];  
 
   # Nix Settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
