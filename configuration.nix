@@ -88,6 +88,7 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    config.common.default = "*"; #silences portal warning
   };
 
   # Gaming and compatibilty stack
@@ -139,7 +140,7 @@
     wl-clipboard
   # Gaming and Wine
     bottles
-    wineWowPackages.staging
+    wine-staging
     winetricks
     mangohud
     lutris
