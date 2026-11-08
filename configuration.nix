@@ -169,6 +169,12 @@
     # Applications
     firefox
     networkmanagerapplet
+    xfce.thunar
+    xfce.thunar-archive-plugin
+    xfce.thunar-volman
+    file-roller
+    tumbler
+
 
     # Gaming & Wine Stack
     bottles
@@ -179,6 +185,9 @@
     heroic
     protonup-qt
   ];
+
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
 
   # Nix Settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
