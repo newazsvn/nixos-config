@@ -17,12 +17,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "nixos";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -51,7 +46,7 @@
     variant = "";
   };
 
-  # cachyos-level responsiveness: zram and systl tweaks
+  # cachyos-level responsiveness: zram and sysctl tweaks
   zramSwap = {
     enable = true;
     algorithm = "zstd";
@@ -63,16 +58,13 @@
     "vm.vfs_cache_pressure" = 50;
   };
 
-  # Graphics Hardware Accelaration
+  # Graphics Hardware Acceleration
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
 
-  #Native niri compositor
-  #programs.niri.enable = true;
-
-  # flatpak
+  # Flatpak support
   services.flatpak.enable = true;
 
   # Login manager: tuigreet
@@ -90,11 +82,11 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    config.common.default = "*"; #silences portal warning
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
   };
 
-  # Gaming and compatibilty stack
+  # Gaming and compatibility stack
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -113,10 +105,10 @@
     pulse.enable = true;
   };
 
-  # Dynamic linked fix (allow non-nix binares)
+  # Dynamic linked fix (allow non-nix binaries)
   programs.nix-ld.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account.
   users.users."newaj" = {
     isNormalUser = true;
     description = "newaj";
@@ -127,9 +119,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile.
   # System packages
-    environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # System & Core Utilities
     wget
     git
@@ -154,7 +145,7 @@
     catppuccin-gtk
     adwaita-icon-theme
 
-    # Softwares
+    # Applications
     firefox
 
     # Gaming & Wine Stack
@@ -168,59 +159,16 @@
   ];
 
   # Nix Settings
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # System Fonts
-    fonts.packages = with pkgs; [
+  fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     font-awesome
   ];
 
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "26.05"; # Did you read the comment?
-
+  system.stateVersion = "26.05";
 }
