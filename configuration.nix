@@ -160,6 +160,32 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # System fonts
+  fonts.packages = with pkgs; [
+  nerd-fonts.jetbrains-mono
+  nerd-fonts.fira-code
+  noto-fonts
+  noto-fonts-emoji
+  font-awesome
+  ];
+
+# User packages for styling and network control
+  environment.systemPackages = with pkgs; [
+  # GTK theme & icons
+  papirus-icon-theme
+  catppuccin-gtk
+  adwaita-icon-theme
+  networkmanagerapplet  # nm-applet for tray icon
+
+  # Wallpaper and launcher
+  swaybg
+  fuzzel
+  waybar
+  mako
+];
+
+
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
