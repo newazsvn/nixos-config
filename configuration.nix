@@ -154,7 +154,7 @@
     pavucontrol
   # softwares
     firefox
-    helium
+    appimage-run
     flatpak
   ];
 
