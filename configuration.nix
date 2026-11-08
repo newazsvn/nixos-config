@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on
+a# Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
@@ -71,6 +71,9 @@
 
   #Native niri compositor
   #programs.niri.enable = true;
+
+  # flatpak
+  services.flatpak.enable = true;
 
   # Login manager: tuigreet
   services.greetd = {
@@ -149,8 +152,10 @@
   # system utility
     git
     pavucontrol
-  # internet
+  # softwares
     firefox
+    helium
+    flatpak
    
   ];
 
