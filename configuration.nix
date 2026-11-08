@@ -169,11 +169,15 @@
     # Applications
     firefox
     networkmanagerapplet
-    xfce.thunar
-    xfce.thunar-archive-plugin
-    xfce.thunar-volman
+    pkgs.thunar
+    pkgs.thunar-archive-plugin
+    pkgs.thunar-volman
     file-roller
     tumbler
+
+    # coding dev
+    nim
+    godot
 
 
     # Gaming & Wine Stack
