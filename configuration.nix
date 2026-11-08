@@ -64,6 +64,27 @@
     enable32Bit = true;
   };
 
+  # Load proprietary NVIDIA driver
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    # Modesetting is required for Wayland compositors (MangoWM / wlroots)
+    modesetting.enable = true;
+
+    # Power management
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    # Use the proprietary production/stable driver
+    open = false;
+
+    # Enable the Nvidia settings menu
+    nvidiaSettings = true;
+
+    # Select the production driver package
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
   # Flatpak support
   services.flatpak.enable = true;
 
