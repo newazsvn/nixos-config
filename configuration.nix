@@ -128,20 +128,36 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  # System packages
+    environment.systemPackages = with pkgs; [
+    # System & Core Utilities
     wget
-  # Compositor & SceneFX stack
+    git
+    pavucontrol
+    wl-clipboard
+    appimage-run
+    flatpak
+
+    # Network & Tray
+    networkmanagerapplet
+
+    # Compositor & SceneFX Stack
     xwayland-satellite
-  # Shell and Desktop companions
+
+    # Shell, Desktop & Theming
     alacritty
     fuzzel
     waybar
     mako
     swaybg
-    wl-clipboard
-  # Gaming and Wine
+    papirus-icon-theme
+    catppuccin-gtk
+    adwaita-icon-theme
+
+    # Softwares
+    firefox
+
+    # Gaming & Wine Stack
     bottles
     wine-staging
     winetricks
@@ -149,41 +165,19 @@
     lutris
     heroic
     protonup-qt
-  # system utility
-    git
-    pavucontrol
-  # softwares
-    firefox
-    appimage-run
-    flatpak
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Nix Settings
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # System fonts
-  fonts.packages = with pkgs; [
-  nerd-fonts.jetbrains-mono
-  nerd-fonts.fira-code
-  noto-fonts
-  noto-fonts-emoji
-  font-awesome
+  # System Fonts
+    fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    noto-fonts
+    noto-fonts-emoji
+    font-awesome
   ];
-
-# User packages for styling and network control
-  environment.systemPackages = with pkgs; [
-  # GTK theme & icons
-  papirus-icon-theme
-  catppuccin-gtk
-  adwaita-icon-theme
-  networkmanagerapplet  # nm-applet for tray icon
-
-  # Wallpaper and launcher
-  swaybg
-  fuzzel
-  waybar
-  mako
-];
-
 
 
   # Some programs need SUID wrappers, can be configured further or are
