@@ -58,6 +58,16 @@
     "vm.vfs_cache_pressure" = 50;
   };
 
+  # Automatic Garbage Collection and Cache Optimization
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
+  # Automatically deduplicate identical files on every rebuild/install
+  nix.settings.auto-optimise-store = true;
+
   # Graphics Hardware Acceleration
   hardware.graphics = {
     enable = true;
