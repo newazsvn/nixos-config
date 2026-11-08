@@ -149,7 +149,6 @@
     wl-clipboard
     appimage-run
     flatpak
-    nix-software-center
 
     # Network & Tray
     networkmanagerapplet
