@@ -207,10 +207,24 @@
     lutris
     heroic
     protonup-qt
+
+    # Driving wheel
+    oversteer        # Graphical wheel manager (rotation limits, FFB strength, profiles)
+    usbutils         # Provides lsusb
+    evtest           # Low-level input event debugger
+    linuxConsoleTools # Provides jstest / evdev calibration tools
   ];
 
+  # service for thunar
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+
+  # for driving wheel
+   # Enable uinput subsystem for gaming controllers
+   hardware.uinput.enable = true;
+
+   # Ensure user has permission to access input devices
+   users.users."newaj".extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];  
 
   # Nix Settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
