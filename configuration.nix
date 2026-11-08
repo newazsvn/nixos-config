@@ -156,7 +156,6 @@ a# Edit this configuration file to define what should be installed on
     firefox
     helium
     flatpak
-   
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
