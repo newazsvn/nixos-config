@@ -18,9 +18,14 @@
   outputs = inputs@{ self, nixpkgs, mangowm, noctalia, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; }; # Passes all inputs to configuration.nix
+      specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        {
+          environment.systemPackages = [
+            mangowm.packages.x86_64-linux.default
+          ];
+        }
       ];
     };
   };

@@ -8,9 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    # Import MangoWM's official NixOS module from your flake inputs
-    inputs.mangowm.nixosModules.default
-    
+      
     # Import Noctalia's Home Manager module
     inputs.noctalia.homeModules.default
     ];
