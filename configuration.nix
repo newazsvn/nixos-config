@@ -9,10 +9,25 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       
-    # Import Noctalia's Home Manager module
-    inputs.noctalia.homeModules.default
     ];
 
+  # Configure Home Manager for user newaj
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.newaj = {
+      imports = [
+        inputs.noctalia.homeModules.default
+      ];
+
+      programs.noctalia = {
+        enable = true;
+      };
+
+      # Required dummy state version for Home Manager
+      home.stateVersion = "26.05"; # Or your current NixOS version
+    };
+  };
    
   # Enable MangoWM window manager
   programs.mango.enable = true;
