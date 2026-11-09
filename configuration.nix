@@ -32,13 +32,6 @@
   # Enable MangoWM window manager
   programs.mango.enable = true;
 
-  # Enable Noctalia via Home Manager for your user
-  home-manager.users.newaj = {
-    programs.noctalia = {
-      enable = true;
-    };
-  };
-
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
