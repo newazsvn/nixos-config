@@ -8,7 +8,24 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+    # Import MangoWM's official NixOS module from your flake inputs
+    inputs.mango.nixosModules.default
+    
+    # Import Noctalia's Home Manager module
+    inputs.noctalia.homeModules.default
     ];
+
+   
+  # Enable MangoWM window manager
+  programs.mango.enable = true;
+
+  # Enable Noctalia via Home Manager for your user
+  home-manager.users.your-username = {
+    programs.noctalia = {
+      enable = true;
+    };
+  };
+
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -181,7 +198,6 @@
     papirus-icon-theme
     catppuccin-gtk
     adwaita-icon-theme
-    noctallia
 
     # Applications
     firefox
