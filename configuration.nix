@@ -181,6 +181,7 @@
     papirus-icon-theme
     catppuccin-gtk
     adwaita-icon-theme
+    noctallia
 
     # Applications
     firefox
