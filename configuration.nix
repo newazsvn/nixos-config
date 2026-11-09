@@ -208,9 +208,9 @@
     # Applications
     firefox
     networkmanagerapplet
-    pkgs.thunar
-    pkgs.thunar-archive-plugin
-    pkgs.thunar-volman
+    thunar
+    thunar-archive-plugin
+    thunar-volman
     file-roller
     tumbler
 

@@ -26,6 +26,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        home-manager.nixosModules.home-manager # <--- THIS IS REQUIRED
         {
           environment.systemPackages = [
             mangowm.packages.x86_64-linux.default
