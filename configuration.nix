@@ -20,7 +20,7 @@
   programs.mango.enable = true;
 
   # Enable Noctalia via Home Manager for your user
-  home-manager.users.your-username = {
+  home-manager.users.newaj = {
     programs.noctalia = {
       enable = true;
     };

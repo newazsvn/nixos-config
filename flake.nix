@@ -1,22 +1,24 @@
 {
-  description = "NixOS system with MangoWM";
+  description = "NixOS system with MangoWM and Noctalia";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    
     mangowm = {
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, mangowm, ... }: {
+  outputs = inputs@{ self, nixpkgs, mangowm, noctalia, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit mangowm; };
+      specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
         {
