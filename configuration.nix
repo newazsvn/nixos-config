@@ -185,6 +185,9 @@
     wget
     git
     pavucontrol
+    pulseaudio # Provides pactl for volume control
+    wireplumber
+    pipewire
     wl-clipboard
     appimage-run
     flatpak
