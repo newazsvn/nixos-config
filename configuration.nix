@@ -198,6 +198,13 @@
     # Compositor & SceneFX Stack
     xwayland-satellite
 
+    # rust
+    rustc
+    cargo
+    rustfmt
+    clippy
+    rust-analyzer
+
     # Shell, Desktop & Theming
     alacritty
     fuzzel
@@ -217,8 +224,7 @@
     file-roller
     tumbler
 
-    # coding dev
-    nim
+    # gamedev
     godot
 
     # creative
