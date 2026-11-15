@@ -204,6 +204,7 @@
     rustfmt
     clippy
     rust-analyzer
+    gcc
 
     # Shell, Desktop & Theming
     alacritty
@@ -225,6 +226,7 @@
 
     # game dev
     godot
+    vscode
 
     # creative
     opentabletdriver # GUI configurator
