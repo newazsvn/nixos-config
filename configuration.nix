@@ -217,7 +217,6 @@
 
     # Applications
     firefox
-    networkmanagerapplet
     thunar
     thunar-archive-plugin
     thunar-volman
