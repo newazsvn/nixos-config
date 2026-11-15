@@ -32,8 +32,6 @@
   # Enable MangoWM window manager
   programs.mango.enable = true;
 
-  # enable FHS compatibility, installed during chatgpt
-  programs.nix-ld.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
