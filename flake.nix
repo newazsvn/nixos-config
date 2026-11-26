@@ -32,7 +32,7 @@
             mangowm.packages.x86_64-linux.default
           ];
           home-manager.users.newaj = {
-            home.sessionVariables.PATH = [ "$HOME/.cargo/bin" ];
+            home.sessionVariables.PATH = "$HOME/.cargo/bin";
           };
         }
       ];
