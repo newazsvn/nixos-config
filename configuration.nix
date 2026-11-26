@@ -48,6 +48,13 @@
   # Set your time zone.
   time.timeZone = "America/Toronto";
 
+  # bluetooth
+   hardware.bluetooth = {
+   enable = true;
+   powerOnBoot = true;
+  };
+
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
