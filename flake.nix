@@ -31,10 +31,9 @@
           environment.systemPackages = [
             mangowm.packages.x86_64-linux.default
           ];
-          
-          programs.bash.shellInit = ''
-           export PATH="$HOME/.cargo/bin:$PATH"
-          '';
+          home-manager.users.newaj = {
+            home.sessionVariables.PATH = [ "$HOME/.cargo/bin" ];
+          };
         }
       ];
     };
