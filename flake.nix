@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     mangowm = {
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +18,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
   };
 
   outputs = inputs@{ self, nixpkgs, mangowm, noctalia, home-manager, ... }: {
@@ -27,17 +26,17 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        home-manager.nixosModules.home-manager # <--- THIS IS REQUIRED
+        home-manager.nixosModules.home-manager
         {
           environment.systemPackages = [
             mangowm.packages.x86_64-linux.default
           ];
-     
-          environment.shellInit.bashLoginInteractive = ''
-            export PATH="$HOME/.cargo/bin:$PATH"
+          
+          environment.shellInit = ''
+           export PATH="$HOME/.cargo/bin:$PATH"
           '';
-          ];
         }
+      ];
     };
   };
-}
+}   
