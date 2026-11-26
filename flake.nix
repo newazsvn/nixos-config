@@ -32,11 +32,12 @@
           environment.systemPackages = [
             mangowm.packages.x86_64-linux.default
           ];
-        }
-        environment.shellInit.bashLoginInteractive = ''
-          export PATH="$HOME/.cargo/bin:$PATH"
+     
+          environment.shellInit.bashLoginInteractive = ''
+            export PATH="$HOME/.cargo/bin:$PATH"
           '';
-        ];
+          ];
+        }
     };
   };
 }
