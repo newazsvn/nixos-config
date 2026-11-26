@@ -19,10 +19,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    blaze.url = "github:indexable-inc/blaze";
   };
 
-  outputs = inputs@{ self, nixpkgs, mangowm, noctalia, home-manager, blaze, ... }: {
+  outputs = inputs@{ self, nixpkgs, mangowm, noctalia, home-manager, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -32,7 +31,6 @@
         {
           environment.systemPackages = [
             mangowm.packages.x86_64-linux.default
-            blaze.packages.x86_64-linux.default
           ];
         }
       ];
