@@ -32,7 +32,7 @@
             mangowm.packages.x86_64-linux.default
           ];
           
-          environment.shellInit = ''
+          program.bash.shellInit = ''
            export PATH="$HOME/.cargo/bin:$PATH"
           '';
         }
