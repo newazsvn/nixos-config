@@ -33,6 +33,9 @@
           ];
           home-manager.users.newaj = {
             home.sessionVariables.PATH = "$HOME/.cargo/bin";
+            home.shellInit = ''
+              export PATH="$HOME/.cargo/bin:$PATH"
+            '';   
           };
         }
       ];

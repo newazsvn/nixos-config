@@ -29,10 +29,6 @@
     };
   };
 
-  home.shellInit = ''
-    export PATH="$HOME/.cargo/bin:$PATH"
-  '';
- 
  
   # Enable MangoWM window manager
   programs.mango.enable = true;
